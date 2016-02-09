@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JsychMess</title>   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jsPsych/jspsych.js"></script>
+    <script src="jsPsych/plugins/jspsych-text.js"></script>
+     <script src="jsPsych/plugins/jspsych-single-stim.js"></script>
+    <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link></head>
+<body>
+<script>
+ 
+ /* define welcome message block */
+    var welcome_block = {
+      type: "text",
+      text: "Welcome to the experiment. When you hear the sound, press the <strong>f</strong> key as fast as possible. Press any key to begin.",
+      /*timing_post_trial: 2000 */
+    };
+    var trial= {
+    type: 'single-stim',
+    stimulus: 'img/ugly.jpg',
+    choices: ['F'],
+    timing_response: 2000
+
+}
+
+
+    /* create experiment timeline array */
+    var timeline = [];
+    timeline.push(welcome_block);
+    timeline.push(trial,trial,trial);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline
+
+    });
+  </script>
+</html>
